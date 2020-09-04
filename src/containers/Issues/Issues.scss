@@ -1,0 +1,73 @@
+@import '../../style/mixins';
+
+.gh-issues {
+    &__count {
+        width: 100%;
+        & > span {
+            padding: 0 4px;
+
+            &.open {
+                color: #24292e;
+                font-weight: 600;
+            }
+
+            &.closed {
+                color: #24292e;
+                font-weight: 600;
+            }
+
+            & > svg {
+                margin: 0 8px 0 0;
+            }
+        }
+        &.-ext {
+            display: flex;
+            padding: 8px 0;
+            margin: 16px 0 0 0;
+
+            @include m {
+                display: none;
+            }
+        }
+        &.-int {
+            display: none;
+
+            @include m {
+                display: flex;
+            }
+        }
+    }
+
+    &__info {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 16px;
+        border: 1px solid #e1e4e8;
+        border-bottom: 0px;
+        border-radius: 6px 6px 0 0;
+        background-color: #f6f8fa;
+        margin: 16px 0 0 0;
+
+        & .order-filter {
+            display: flex;
+            justify-content: flex-start;
+
+            @include m {
+                justify-content: space-between;
+            }
+
+            & select {
+                border: none;
+            }
+        }
+    }
+
+    &__issues-list {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-top: 0px;
+        border-radius: 0 0 6px 6px;
+    }
+}

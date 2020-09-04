@@ -1,0 +1,15 @@
+.gh-tag {
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid transparent;
+    border-radius: 2em;
+
+    &.light {
+        color: #fff;
+    }
+    &.dark {
+        color: #000;
+    }
+}

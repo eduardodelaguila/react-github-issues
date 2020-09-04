@@ -1,0 +1,33 @@
+.gh-clear-filters {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #586069;
+    margin: 16px 0 0 0;
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        color: #0366d6;
+
+        & > .gh-clear-filters__checkbox {
+            background-color: #0366d6;
+        }
+    }
+
+    &__checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15px;
+        height: 15px;
+        background-color: #586069;
+        border-radius: 4px;
+        margin: 0 8px 0 0;
+        transition: background-color 0.3s;
+
+        & > svg {
+            color: #fff;
+        }
+    }
+}

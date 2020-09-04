@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import SearchBar from 'containers/SearchBar';
+import Issues from 'containers/Issues';
+import Error from 'containers/Error';
+import ErrorBoundary from 'components/ErrorBoundary';
+
+import { IssuesProvider, RepoProvider } from 'context';
+
+import './App.scss';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ErrorBoundary>
+            <RepoProvider>
+                <IssuesProvider>
+                    <div className="gh">
+                        <div className="gh-container">
+                            <SearchBar />
+                            <Issues />
+                            <Error />
+                        </div>
+                    </div>
+                </IssuesProvider>
+            </RepoProvider>
+        </ErrorBoundary>
+    );
 }
 
 export default App;

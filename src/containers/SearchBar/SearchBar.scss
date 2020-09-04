@@ -1,0 +1,56 @@
+.gh-search-bar {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+
+        &__filters {
+            display: flex;
+            flex-grow: 2;
+            border: 1px solid #eef0f2;
+            border-radius: 5px;
+            margin: 4px 8px 0 0;
+
+            & summary {
+                background-color: #fafbfc;
+                transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+                cursor: pointer;
+                padding: 5px 16px;
+
+                &:hover {
+                    background-color: #f3f4f6;
+                    border-color: rgba(27, 31, 35, 0.15);
+                    box-shadow: 0 1px 0 rgba(27, 31, 35, 0.04),
+                        inset 0 1px 0 hsla(0, 0%, 100%, 0.25);
+                }
+            }
+        }
+    }
+
+    & .gh-repo-nav {
+        margin: 4px 8px 0 0;
+    }
+
+    .issue-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 16px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        color: #fff;
+        background-color: #2ea44f;
+        border-color: rgba(27, 31, 35, 0.15);
+        border-radius: 5px;
+        box-shadow: 0 1px 0 rgba(27, 31, 35, 0.1),
+            inset 0 1px 0 hsla(0, 0%, 100%, 0.03);
+        margin: 4px 0 0 0;
+    }
+}

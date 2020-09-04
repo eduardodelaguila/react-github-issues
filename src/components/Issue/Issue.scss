@@ -1,0 +1,72 @@
+.gh-issue {
+    display: flex;
+    border: 1px solid #e1e4e8;
+    background-color: #fff;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: #f4f7f9;
+    }
+
+    &:last-of-type {
+        border-radius: 0 0 6px 6px;
+    }
+
+    &__state {
+        box-sizing: border-box;
+        padding: 8px 0 0 16px;
+
+        & .state-green {
+            color: #28a745;
+        }
+
+        & .state-red {
+            color: #cb2431;
+        }
+    }
+
+    &__data {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+        padding: 8px;
+        width: calc(3 / 12 * 100%);
+
+        &__name-labels {
+            display: flex;
+            flex-wrap: wrap;
+
+            & .name {
+                font-weight: 600;
+                font-size: 16px;
+                color: #24292e;
+                text-decoration: none;
+                margin: 0 4px 0 0;
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: #0366d6;
+                }
+            }
+        }
+
+        & .dates {
+            font-size: 12px;
+            color: #586069;
+            margin: 4px 0 0 0;
+
+            & .number {
+                margin: 0 4px 0 0;
+            }
+        }
+    }
+
+    &__comments {
+        flex-shrink: 0;
+        box-sizing: border-box;
+        min-width: 40px;
+        padding: 8px 16px 0 0;
+        color: #24292e;
+    }
+}

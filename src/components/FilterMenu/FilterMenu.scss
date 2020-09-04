@@ -1,0 +1,15 @@
+.gh-filter-menu {
+    &__item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 16px;
+        overflow: hidden;
+        color: #24292e;
+        text-align: left;
+        cursor: pointer;
+        background-color: #fff;
+        border: 0;
+        border-bottom: 1px solid #eaecef;
+    }
+}
