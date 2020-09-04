@@ -5,6 +5,7 @@
         width: 100%;
         & > span {
             padding: 0 4px;
+            font-size: 0.9em;
 
             &.open {
                 color: #24292e;
@@ -12,8 +13,9 @@
             }
 
             &.closed {
-                color: #24292e;
-                font-weight: 600;
+                color: #586069;
+                font-weight: 400;
+                margin: 0 0 0 10px;
             }
 
             & > svg {
@@ -66,7 +68,10 @@
     &__issues-list {
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
         width: 100%;
+        min-height: 450px;
+        border: 1px solid #e1e4e8;
         border-top: 0px;
         border-radius: 0 0 6px 6px;
     }

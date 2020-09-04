@@ -12,12 +12,12 @@ const RepoNav = () => {
         <nav className="gh-repo-nav">
             <a href="https://github.com/facebook/react/milestones">
                 <TagIcon size={16} />
-                Labels
+                <p>Labels</p>
                 <span className="gh-count">{labels.length}</span>
             </a>
             <a href="https://github.com/facebook/react/labels">
                 <MilestoneIcon size={16} />
-                Milestones
+                <p>Milestones</p>
                 <span className="gh-count">{milestones.length}</span>
             </a>
         </nav>

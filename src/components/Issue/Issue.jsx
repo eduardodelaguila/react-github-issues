@@ -24,6 +24,7 @@ const Issue = (props) => {
         user,
         comments,
         closed_at,
+        assignee,
     } = props;
 
     const renderLabels = () => {
@@ -64,11 +65,23 @@ const Issue = (props) => {
         }
     };
 
+    const renderAssignees = () => {
+        if (assignee) {
+            const { html_url, avatar_url, login } = assignee;
+            return (
+                <a href={html_url} className="assignee">
+                    <img src={avatar_url} alt={`${login}'s profile`} />
+                </a>
+            );
+        }
+        return null;
+    };
+
     const renderComments = () => {
         return comments !== 0 ? (
-            <div className="gh-issue__comments">
+            <React.Fragment>
                 <CommentIcon size={16} /> <span>{comments}</span>
-            </div>
+            </React.Fragment>
         ) : null;
     };
 
@@ -88,8 +101,14 @@ const Issue = (props) => {
                     <span>{renderDate()}</span>
                 </div>
             </div>
-
-            {renderComments()}
+            <div className="gh-issue__assignees-and-messages">
+                <div className="gh-issue__assignees-and-messages__assignee-container">
+                    {renderAssignees()}
+                </div>
+                <div className="gh-issue__assignees-and-messages__comments">
+                    {renderComments()}
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import debounce from 'lodash.debounce';
+import React, { useState, useEffect, useRef } from 'react';
+import useDebounceValue from 'hooks/useDebounceValue';
 
 import { getIssues } from 'service';
 
@@ -14,20 +14,9 @@ export const IssuesProvider = ({ children }) => {
     const [page, setPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(1);
     const [errors, setErrors] = useState(false);
+    const firstSuggestionRef = useRef(true);
 
-    const search = async (q) => {
-        try {
-            const res = await getIssues(q, 5);
-            setSuggestions(res.items);
-        } catch (error) {
-            setErrors(error);
-        }
-    };
-    const debouncedSuggestion = useCallback(debounce(search, 600), []);
-
-    useEffect(() => {
-        debouncedSuggestion(query);
-    }, [query, debouncedSuggestion]);
+    const debouncedQuery = useDebounceValue(query, 600);
 
     const getIssuesByQuery = async (page) => {
         try {
@@ -42,6 +31,30 @@ export const IssuesProvider = ({ children }) => {
             setErrors(error);
         }
     };
+
+    useEffect(() => {
+        const triggerFirstSearch = () => getIssuesByQuery();
+        firstSuggestionRef.current = false;
+        triggerFirstSearch();
+    }, []);
+
+    useEffect(() => {
+        const search = async (q) => {
+            try {
+                if (
+                    !firstSuggestionRef.current &&
+                    q !== ' ' &&
+                    q !== 'is: open '
+                ) {
+                    const res = await getIssues({ query: q, limit: 5 });
+                    setSuggestions(res.items);
+                }
+            } catch (error) {
+                setErrors(error);
+            }
+        };
+        search(debouncedQuery);
+    }, [debouncedQuery]);
 
     const clearFilters = () => {
         setQuery('is:issue is:open');
