@@ -12,10 +12,10 @@ export const RepoProvider = ({ children }) => {
     useEffect(() => {
         const initRepoData = async () => {
             try {
-                // const labelsData = await getLabels();
-                // setLabels(labelsData);
-                // const milestonesData = await getMilestones();
-                // setMilestones(milestonesData);
+                const labelsData = await getLabels();
+                setLabels(labelsData);
+                const milestonesData = await getMilestones();
+                setMilestones(milestonesData);
             } catch (error) {
                 setErrors(error);
             }

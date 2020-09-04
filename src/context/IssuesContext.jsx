@@ -17,8 +17,8 @@ export const IssuesProvider = ({ children }) => {
 
     const search = async (q) => {
         try {
-            // const res = await getIssues(q, 5);
-            // setSuggestions(res.items);
+            const res = await getIssues(q, 5);
+            setSuggestions(res.items);
         } catch (error) {
             setErrors(error);
         }
