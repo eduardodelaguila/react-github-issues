@@ -29,6 +29,9 @@ export const IssuesProvider = ({ children }) => {
             setPagesCount(Math.ceil(issues.total_count / ELEMENTS_BY_PAGE));
         } catch (error) {
             setErrors(error);
+            // To avoid suggestions and issues to break when an error occurs, the values will be reset to an empty array
+            setSuggestions([]);
+            setIssues([]);
         }
     };
 
@@ -36,6 +39,9 @@ export const IssuesProvider = ({ children }) => {
         const triggerFirstSearch = () => getIssuesByQuery();
         firstSuggestionRef.current = false;
         triggerFirstSearch();
+        /* I will disable eslint for the next line because 
+            I need that use effect behaves as didmount, just a 1 time run */
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {

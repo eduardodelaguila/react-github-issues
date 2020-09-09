@@ -1,12 +1,12 @@
 const GITHUB_URL = 'https://api.github.com/';
-const token = '80cf218c3b61e179b8b29fc7cc7dfc4bb3b6b517';
+const token = process.env.REACT_APP_GITHUB_TOKEN;
 
 const fetchingGh = async (url, method) => {
     try {
         const headers = new Headers({
             Accept: 'application/vnd.github.v3+json',
         });
-        if (token) {
+        if (token && token !== '') {
             headers.append('Authorization', `token ${token}`);
         }
         const call = await fetch(url, {
